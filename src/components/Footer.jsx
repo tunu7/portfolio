@@ -4,14 +4,14 @@ import { faGithub, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-ic
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white py-4 flex flex-col items-center">
+    <footer className="bg-gray-900 text-white py-4 flex flex-col items-center">
       <p className="text-sm mb-2">&copy; 2024 My Portfolio</p>
-      <div className="flex space-x-4">
+      <div className="flex space-x-6">
         <a
           href="https://github.com/yourusername" // Replace with your GitHub profile link
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-gray-400 transition duration-300"
+          className="hover:text-yellow-400 transition duration-300"
         >
           <FontAwesomeIcon icon={faGithub} size="lg" />
         </a>
@@ -19,7 +19,7 @@ const Footer = () => {
           href="https://www.linkedin.com/in/yourusername" // Replace with your LinkedIn profile link
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-gray-400 transition duration-300"
+          className="hover:text-yellow-400 transition duration-300"
         >
           <FontAwesomeIcon icon={faLinkedin} size="lg" />
         </a>
@@ -27,7 +27,7 @@ const Footer = () => {
           href="https://twitter.com/tunu_7" // Replace with your Twitter profile link
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-gray-400 transition duration-300"
+          className="hover:text-yellow-400 transition duration-300"
         >
           <FontAwesomeIcon icon={faTwitter} size="lg" />
         </a>

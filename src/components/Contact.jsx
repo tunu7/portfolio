@@ -12,7 +12,7 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     try {
       const response = await axios.post('http://localhost:5000/api/contact', formData);
 
@@ -28,16 +28,16 @@ const Contact = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
-      <h1 className="text-3xl font-bold text-gray-800 mb-6">Contact Me</h1>
-      <form onSubmit={handleSubmit} className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md space-y-4">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-800 text-white p-6">
+      <h1 className="text-3xl font-bold mb-6">Contact Me</h1>
+      <form onSubmit={handleSubmit} className="bg-gray-700 p-8 rounded-lg shadow-lg w-full max-w-md space-y-4">
         <input
           type="text"
           name="name"
           placeholder="Your Name"
           value={formData.name}
           onChange={handleChange}
-          className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+          className="w-full p-3 border border-gray-600 rounded focus:outline-none focus:border-yellow-400"
           required
         />
         <input
@@ -46,7 +46,7 @@ const Contact = () => {
           placeholder="Your Email"
           value={formData.email}
           onChange={handleChange}
-          className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+          className="w-full p-3 border border-gray-600 rounded focus:outline-none focus:border-yellow-400"
           required
         />
         <textarea
@@ -54,12 +54,12 @@ const Contact = () => {
           placeholder="Your Message"
           value={formData.message}
           onChange={handleChange}
-          className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-blue-500 h-32"
+          className="w-full p-3 border border-gray-600 rounded focus:outline-none focus:border-yellow-400 h-32"
           required
         />
         <button
           type="submit"
-          className="w-full py-3 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700 transition duration-300"
+          className="w-full py-3 bg-yellow-400 text-gray-800 font-semibold rounded hover:bg-yellow-300 transition duration-300"
         >
           Send
         </button>
