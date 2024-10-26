@@ -6,7 +6,6 @@ const dotenv = require('dotenv');
 const connectDB = require('./config/db');
 const projectRoutes = require('./routes/projectRoutes');
 const contactRoutes = require('./routes/contactRoutes');
-const path = require('path');
 
 // Load environment variables
 dotenv.config();
@@ -33,13 +32,13 @@ const transporter = nodemailer.createTransport({
 app.use('/api/projects', projectRoutes); // Project routes
 app.use('/api/contact', contactRoutes);   // Contact routes
 
-// Serve static files from React app
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, 'client/build'))); // Serve React app files
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html')); // Serve index.html for any other route
-  });
-}
+const path = require('path');
+app.use(express.static(path.join(__dirname, '../client/build')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../client', 'build', 'index.html'));
+});
+
 
 // Server setup
 const PORT = process.env.PORT || 5000; // Define the port
