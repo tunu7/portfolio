@@ -1,35 +1,34 @@
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import React from "react";
+import { FaGithub, FaTwitter, FaEnvelope } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-4 flex flex-col items-center">
-      <p className="text-sm mb-2">&copy; 2024 My Portfolio</p>
-      <div className="flex space-x-6">
+    <footer className="flex justify-between items-center bg-white mx-60 pb-4 px-12 ">
+      <div className="text-xl font-semibold text-gray-900">
+        <span>Tunu Doley</span>
+      </div>
+      <div className="flex space-x-4">
         <a
-          href="https://github.com/yourusername" // Replace with your GitHub profile link
+          href="https://github.com/your-github-username"
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-yellow-400 transition duration-300"
+          className="text-black hover:text-gray-600"
         >
-          <FontAwesomeIcon icon={faGithub} size="lg" />
+          <FaGithub size={20} />
         </a>
         <a
-          href="https://www.linkedin.com/in/yourusername" // Replace with your LinkedIn profile link
+          href="https://twitter.com/your-twitter-handle"
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-yellow-400 transition duration-300"
+          className="text-black hover:text-gray-600"
         >
-          <FontAwesomeIcon icon={faLinkedin} size="lg" />
+          <FaTwitter size={20} />
         </a>
         <a
-          href="https://twitter.com/tunu_7" // Replace with your Twitter profile link
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-yellow-400 transition duration-300"
+          href="mailto:your-email@example.com"
+          className="text-black hover:text-gray-600"
         >
-          <FontAwesomeIcon icon={faTwitter} size="lg" />
+          <FaEnvelope size={20} />
         </a>
       </div>
     </footer>
