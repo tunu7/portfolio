@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { db } from "../firebaseConfig";
 import { collection, getDocs } from "firebase/firestore";
+import ProjectsData from "../database/ProjectsData";
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);

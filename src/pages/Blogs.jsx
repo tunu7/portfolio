@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { db } from '../firebaseConfig'; // Import your Firebase configuration
 import { collection, getDocs } from 'firebase/firestore';
 
 const Blogs = () => {
