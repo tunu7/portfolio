@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ProjectsData from "../database/ProjectsData"; // Import the ProjectsData function
+import BlogData from "../database/BlogData"; // Import BlogData
 import myPhoto from "../assets/myPhoto.jpg"; // Import the image from the assets folder
 import { FaGithub, FaTwitter, FaEnvelope } from "react-icons/fa";
 
 const Home = () => {
   const [projects, setProjects] = useState([]);
+  const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
     // Fetch project data from ProjectsData function
@@ -14,6 +16,13 @@ const Home = () => {
       setProjects(data.slice(0, 2)); // Limit to 2 projects
     };
     fetchProjects();
+
+    // Fetch blog data from BlogData function
+    const fetchBlogs = () => {
+      const data = BlogData; // Use the BlogData array directly
+      setBlogs(data.slice(0, 3)); // Limit to 3 blog posts
+    };
+    fetchBlogs();
   }, []);
 
   return (
@@ -81,6 +90,43 @@ const Home = () => {
             </Link>
           </div>
         ))}
+      </div>
+
+      {/* Button to Navigate to Full Projects Section */}
+      <div className="flex justify-center mt-8">
+        <Link
+          to="/projects"
+          className="bg-indigo-500 text-white py-2 px-6 rounded-lg hover:bg-indigo-700"
+        >
+          View All Projects
+        </Link>
+      </div>
+
+      {/* Blog Section */}
+      <h2 className="text-3xl font-bold text-center my-8">Latest Blog Posts</h2>
+      <div className="flex flex-col gap-8">
+        {blogs.map((blog) => (
+          <div key={blog.id} className="bg-white p-6 rounded-lg shadow-md">
+            <h3 className="text-2xl font-semibold mb-4">{blog.title}</h3>
+            <p className="text-gray-700 mb-4">{blog.excerpt}</p>
+            <Link
+              to={`/blog/${blog.id}`}
+              className="text-indigo-500 hover:text-indigo-700"
+            >
+              Read more
+            </Link>
+          </div>
+        ))}
+      </div>
+
+      {/* Button to Navigate to Full Blog Section */}
+      <div className="flex justify-center mt-8">
+        <Link
+          to="/blogs"
+          className="bg-indigo-500 text-white py-2 px-6 rounded-lg hover:bg-indigo-700"
+        >
+          View All Blogs
+        </Link>
       </div>
     </div>
   );
