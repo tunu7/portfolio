@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { collection, getDocs } from "firebase/firestore";
-import ProjectsData from "../database/ProjectsData";
+import ProjectsData from "../database/ProjectsData"; // Import the ProjectsData from the local file
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
@@ -10,22 +9,14 @@ const Projects = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const projectsCollection = collection(db, "projects");
-        const projectsSnapshot = await getDocs(projectsCollection);
-
-        // Check if there are any retrieved documents
-        if (!projectsSnapshot.empty) {
-          const projectsList = projectsSnapshot.docs.map((doc) => ({
-            id: doc.id,
-            ...doc.data(),
-          }));
-          setProjects(projectsList);
+        const data = ProjectsData(); // Fetch data from the ProjectsData function or import
+        if (data && data.length > 0) {
+          setProjects(data); // Set projects state with data from the local file
         } else {
-          console.warn("No projects found in the 'projects' collection.");
+          console.warn("No projects found in the 'ProjectsData'.");
         }
       } catch (error) {
         console.error("Error fetching projects:", error);
-        // Handle specific errors here (e.g., network errors, permission errors)
         setError("An error occurred while loading projects. Please try again later.");
       } finally {
         setLoading(false);
@@ -36,7 +27,7 @@ const Projects = () => {
   }, []);
 
   if (loading) {
-    return <p>...</p>;
+    return <p>Loading...</p>;
   }
 
   if (error) {
@@ -44,11 +35,11 @@ const Projects = () => {
   }
 
   return (
-    <section className="bg-white mx-60 mb-8 py-2 px-8 text-sm">
+    <section className="bg-white mx-8 md:mx-60 mb-8 py-2 px-4 md:px-8 text-sm">
       <h2 className="text-3xl px-4 font-extrabold text-center mb-8 text-gray-800">
         Projects
       </h2>
-      <div className="grid grid-cols-1 gap-8"> {/* Use grid for column layout */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         {projects.map((project) => (
           <div
             key={project.id}
