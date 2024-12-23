@@ -17,12 +17,12 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="bg-white max-w-7xl mx-auto px-20 py-8">
+    <div className="bg-white max-w-7xl mx-auto px-6 py-8 md:px-20 md:py-16">
       {/* Introduction Section */}
       <div className="flex flex-col md:flex-row items-center justify-between mb-20">
         {/* Left Section (Text) */}
         <div className="w-full md:w-1/2 text-center md:text-left pl-6">
-          <h1 className="text-4xl font-extrabold mb-8 top-0 ">Introduction</h1>
+          <h1 className="text-4xl font-extrabold mb-8">Introduction</h1>
           <p className="text-lg mt-4 text-gray-700">
             I specialize in crafting clean, scalable code and intuitive, user-centered designs. My focus on quality and detail ensures that every project seamlessly blends functionality with aesthetics to deliver impactful solutions.
           </p>
@@ -36,7 +36,7 @@ const Home = () => {
                 rel="noopener noreferrer"
                 className="text-gray-700 hover:text-indigo-500"
               >
-                <FaGithub size={30} />  {/* Increased size */}
+                <FaGithub size={30} />
               </a>
               <a
                 href="https://twitter.com/your-twitter-username"
@@ -44,13 +44,13 @@ const Home = () => {
                 rel="noopener noreferrer"
                 className="text-gray-700 hover:text-indigo-500"
               >
-                <FaTwitter size={30} />  {/* Increased size */}
+                <FaTwitter size={30} />
               </a>
               <a
                 href="mailto:your-email@example.com"
                 className="text-gray-700 hover:text-indigo-500"
               >
-                <FaEnvelope size={30} />  {/* Increased size */}
+                <FaEnvelope size={30} />
               </a>
             </div>
           </div>
@@ -61,7 +61,7 @@ const Home = () => {
           <img
             src={myPhoto}
             alt="Tunu Doley"
-            className="w-80 h-82 rounded-md"
+            className="w-80 h-80 rounded-md max-w-full"
           />
         </div>
       </div>
